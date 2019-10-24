@@ -10,7 +10,7 @@
 
 import java.util.Scanner;
 
-public class TemplateForProjects2 {
+public class NamesApp {
 	final static String TITLE = "Names App";
 	final static String CONTINUE_PROMPT = "Do this again? [y/N] ";
 	
@@ -21,16 +21,25 @@ public class TemplateForProjects2 {
 	
 	private static void process(Scanner sc, String args[]) {
 		
-		int start;
-		int end;
-		int num;
+		int start = 0;
+		int end = 0;
+		int num = 0;
 		
-		System.out.print("Enter start year: ");
-		start = sc.nextInt();
-		System.out.println("Enter end year: ");
+		do {
+			System.out.println("Enter start year(Must be between 1880 and 2018): ");
+			start = sc.nextInt();
+			} while(start < 1880 || start > 2018);
+		
+		do {
+		System.out.println("Enter end year(must be between 1880-2018 and bigger than the start year entered): ");
 		end = sc.nextInt();
-		System.out.print("Enter number of names: ");
-		num = sc.nextInt();
+			} while((end < 1880 || end > 2018) && end >= start);
+		
+		do {
+			System.out.println("Enter end year: ");
+			num = sc.nextInt();
+			} while(num > 0);
+		
 		System.out.println("Processing... ");
 		sc.nextLine();  // Clear Keyboard
 	}
